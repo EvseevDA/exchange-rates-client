@@ -20,8 +20,8 @@ public class ClientRequestController {
             try (BufferedWriter writer = createWriter(socket);
                  ObjectInputStream reader = createReader(socket)) {
                 sendRequest(Constants.GET_NEW_RATES_REQUEST, writer);
-                Object o = getResponse(reader);
-                exchangeRates = requireResponseInstanceOfT(o, Set.class);
+                Object response = getResponse(reader);
+                exchangeRates = requireResponseInstanceOfT(response, Set.class);
             }
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
