@@ -1,6 +1,7 @@
 package com.exchangerates.client.ui.frame;
 
 import com.exchangerates.client.service.CurrencyService;
+import com.exchangerates.client.ui.UI;
 import com.exchangerates.client.ui.frame.util.Frame;
 import com.exchangerates.util.Validator;
 import com.exchangerates.util.pojo.Currency;
@@ -8,18 +9,37 @@ import com.exchangerates.util.pojo.Currency;
 import javax.swing.*;
 import java.util.*;
 
+/**
+ * Class of first frame which displayed on user's monitor.
+ * @see Frame
+ * @see AbstractFrame
+ * @see CurrenciesTableFrame
+ * @see UI
+ * @since 19.0.1
+ * @author Evseev Dmitry
+ */
 public final class StartFrame extends AbstractFrame {
 
+    /**
+     * title of this frame
+     */
     public static final String TITLE = "Home";
 
     private StartFrame() {
     }
 
+    /**
+     * @return title of this frame
+     */
     @Override
     protected String title() {
         return TITLE;
     }
 
+    /**
+     * Creates and configures a new frame.
+     * @return created frame
+     */
     public static StartFrame getNewFrame() {
         StartFrame startFrame = new StartFrame();
         JPanel panel = new JPanel();

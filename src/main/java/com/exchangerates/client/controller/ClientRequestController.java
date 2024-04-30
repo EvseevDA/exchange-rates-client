@@ -11,8 +11,18 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Set;
 
+/**
+ * Controls client requests to the server.
+ * @since 19.0.1
+ * @author Evseev Dmitry
+ */
 public class ClientRequestController {
 
+    /**
+     * Sends a request to the server to receive exchange rates
+     * @return currencies set if request was successfully handled by server
+     * @throws ClassCastException if the response received is not instance if Set (can happen if server logic is changed)
+     */
     @SuppressWarnings("unchecked")
     public Set<Currency> getAllCurrencies() {
         Set<Currency> exchangeRates;

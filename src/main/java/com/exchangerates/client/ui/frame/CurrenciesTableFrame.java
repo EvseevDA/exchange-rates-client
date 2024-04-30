@@ -1,6 +1,8 @@
 package com.exchangerates.client.ui.frame;
 
 import com.exchangerates.client.service.CurrencyService;
+import com.exchangerates.client.ui.UI;
+import com.exchangerates.client.ui.frame.util.Frame;
 import com.exchangerates.util.Validator;
 import com.exchangerates.util.pojo.Currency;
 
@@ -10,18 +12,40 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
+/**
+ * Class of frame on which currencies table is displayed.
+ * @see Frame
+ * @see AbstractFrame
+ * @see StartFrame
+ * @see UI
+ * @since 19.0.1
+ * @author Evseev Dmitry
+ */
 public final class CurrenciesTableFrame extends AbstractFrame {
 
     private CurrenciesTableFrame() {
     }
 
+    /**
+     * title of this frame
+     */
     public static final String TITLE = "Currencies";
 
+    /**
+     * @return title of this frame
+     */
     @Override
     protected String title() {
         return TITLE;
     }
 
+    /**
+     * Creates and configures currencies table frame
+     * @param chosenCurrencies currencies which will be displayed in the table
+     * @param parent needed to be able to go back to parent page
+     * @return created frame
+     * @throws NullPointerException if chosenCurrencies or parent is null
+     */
     public static CurrenciesTableFrame
     getNewFrame(List<String> chosenCurrencies, StartFrame parent) {
         Validator.requireNonNull(chosenCurrencies, parent);
